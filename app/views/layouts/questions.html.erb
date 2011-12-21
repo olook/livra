@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+  <title>Questions</title>
+  <%= stylesheet_link_tag "questions" %>
+</head>
+<body>
+
+<div id="header">
+</div>
+<div class="colmask threecol">
+	<div class="colmid">
+		<div class="colleft">
+      <div class="col1">
+        <%= yield(:column_middle) if content_for?(:column_middle) %>
+			</div>
+			<div class="col2">
+        <%= yield(:column_left) if content_for?(:column_left) %>
+			</div>
+			<div class="col3">
+        <%= yield(:column_right) if content_for?(:column_right) %>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="footer">
+</div>
+
+</body>
+</html>
