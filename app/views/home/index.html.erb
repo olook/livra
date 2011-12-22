@@ -1,16 +1,2 @@
-<% content_for :column_left do %>
-  <%= image_tag 'casual.jpg', :class => 'banner' %>
-  <%= image_tag 'contemporary.jpg', :class => 'banner' %>
-  <%= image_tag 'elegant.jpg', :class => 'banner' %>
-<% end %>
-
-<% content_for :column_middle do %>
-  <%= image_tag 'feminine.jpg', :class => 'banner'  %>
-  <%= image_tag '1.jpg', :class => 'banner'  %>
-<% end %>
-
-<% content_for :column_right do %>
-  <%= image_tag 'sexy.jpg', :class => 'banner' %>
-  <%= image_tag 'traditional.jpg', :class => 'banner' %>
-  <%= image_tag 'trendy.jpg', :class => 'banner' %>
-<% end %>
+<h1>Olá, bem vinda ao survey</h1>
+<%= link_to 'Clique aqui para continuar', question_path(1, 0) %>
