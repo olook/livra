@@ -2,8 +2,20 @@ class HomeController < ApplicationController
   before_filter :save_tracking_params, :only => :index
   before_filter :prepare_questions, :only => :question
 
+  PROFILES = %w{casual contemporary elegant feminine sexy traditional trendy}
+
   def index
     session[:questions] = nil
+  end
+
+  def profile
+    index = params[:number].to_i
+    @profile = PROFILES[index - 1]
+    if index == PROFILES.length
+      @next_page = question_path(1, 0)
+    else
+      @next_page = profile_path(index+1)
+    end
   end
 
   def question
