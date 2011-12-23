@@ -103,7 +103,6 @@ img {
 	float:left;
 	width:100%;			/* width of whole page */
 	overflow:hidden;		/* This chops off any overhanging divs */
-  height: 550px;
 }
 /* common column settings */
 .colright,
@@ -170,4 +169,5 @@ img.banner {
 }
 p.image_title {
   text-align: center;
+  font-size: 20px;
 }
