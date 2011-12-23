@@ -24,6 +24,7 @@ class HomeController < ApplicationController
 
     if (1..7).include? response
       logger.debug "!!!!!!!! #{session[:questions][number-2]} = #{response}"
+      Answer.find_or_create_by_user_and_image(session[:user], session[:questions][number-2], :profile => PROFILES[response-1])
     end
 
     if number <= session[:questions].length
@@ -37,10 +38,17 @@ class HomeController < ApplicationController
 
   def finish
   end
+
+  def admin_results
+  end
 private
   def save_tracking_params
     incoming_params = params.clone.delete_if {|key| ['controller', 'action'].include?(key) }
-    session[:tracking_params] = incoming_params unless incoming_params.empty?
+    if incoming_params.empty?
+      session[:user] = Random.rand(9999999999).to_s
+    else
+      session[:user] = incoming_params.to_s
+    end
   end
 
   def pictures_dir
@@ -52,6 +60,7 @@ private
     if session[:questions].nil?
       session[:questions] = Dir.entries(pictures_dir)
       session[:questions].delete_if {|filename| !filename.match /.jpg$/}
+      session[:questions].map!{|filename| filename.gsub(/.jpg$/, '')}
       session[:questions].shuffle!
     end
   end

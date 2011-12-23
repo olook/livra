@@ -12,20 +12,20 @@
 	<div class="colmid">
 		<div class="colleft">
       <div class="col1">
-        <%= link_to image_tag('feminine.jpg', :class => 'banner'), question_path(@next_question, 4) %>
+        <%= link_to image_tag('profiles/feminine.jpg', :class => 'banner'), question_path(@next_question, 4) %>
         <div class="main-picture">
           <%= yield(:main_picture) if content_for?(:main_picture) %>
         </div>
       </div>
 			<div class="col2">
-        <%= link_to image_tag('casual.jpg', :class => 'banner'), question_path(@next_question, 3) %>
-        <%= link_to image_tag('contemporary.jpg', :class => 'banner'), question_path(@next_question, 2) %>
-        <%= link_to image_tag('elegant.jpg', :class => 'banner'), question_path(@next_question, 1) %>
+        <%= link_to image_tag('profiles/elegant.jpg', :class => 'banner'), question_path(@next_question, 3) %>
+        <%= link_to image_tag('profiles/contemporary.jpg', :class => 'banner'), question_path(@next_question, 2) %>
+        <%= link_to image_tag('profiles/casual.jpg', :class => 'banner'), question_path(@next_question, 1) %>
 			</div>
 			<div class="col3">
-        <%= link_to image_tag('sexy.jpg', :class => 'banner'), question_path(@next_question, 5) %>
-        <%= link_to image_tag('traditional.jpg', :class => 'banner'), question_path(@next_question, 6) %>
-        <%= link_to image_tag('trendy.jpg', :class => 'banner'), question_path(@next_question, 7) %>
+        <%= link_to image_tag('profiles/sexy.jpg', :class => 'banner'), question_path(@next_question, 5) %>
+        <%= link_to image_tag('profiles/traditional.jpg', :class => 'banner'), question_path(@next_question, 6) %>
+        <%= link_to image_tag('profiles/trendy.jpg', :class => 'banner'), question_path(@next_question, 7) %>
 			</div>
 		</div>
 	</div>
