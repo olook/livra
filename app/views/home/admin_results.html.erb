@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>user</th>
+    <th>image</th>
+    <th>profile</th>
+  </tr>
+  <% @answers.each do |answer| %>
+  <tr>
+    <td><%= answer.user %></td>
+    <td><%= answer.image %></td>
+    <td><%= answer.profile %></td>
+  </tr>
+  <% end %>
+</table>

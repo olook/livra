@@ -40,6 +40,7 @@ class HomeController < ApplicationController
   end
 
   def admin_results
+    @answers = Answer.all
   end
 private
   def save_tracking_params
