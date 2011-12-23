@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(:version => 20111223134615) do
     t.datetime "updated_at"
   end
 
+  add_index "answers", ["image"], :name => "index_answers_on_image"
+  add_index "answers", ["profile"], :name => "index_answers_on_profile"
+  add_index "answers", ["user"], :name => "index_answers_on_user"
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"

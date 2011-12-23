@@ -23,12 +23,13 @@ class HomeController < ApplicationController
     response = params[:response].to_i
 
     if (1..7).include? response
-      logger.debug "!!!!!!!! #{session[:questions][number-2]} = #{response}"
-      Answer.find_or_create_by_user_and_image(session[:user], session[:questions][number-2], :profile => PROFILES[response-1])
+      image = clean_image_name session[:questions][number-2]
+      Answer.find_or_create_by_user_and_image(session[:user], image, :profile => PROFILES[response-1])
     end
 
     if number <= session[:questions].length
       @question_picture = session[:questions][number - 1]
+      @question_title = clean_image_name @question_picture
       @next_question = number + 1
       render 'question', :layout => 'questions'
     else
@@ -43,6 +44,11 @@ class HomeController < ApplicationController
     @answers = Answer.all
   end
 private
+  def clean_image_name(original_name)
+    result = original_name.gsub(/.jpg$/, '')
+    result.gsub(/-[a-zA-Z0-9]*$/, '')
+  end
+
   def save_tracking_params
     incoming_params = params.clone.delete_if {|key| ['controller', 'action'].include?(key) }
     if incoming_params.empty?
@@ -61,7 +67,6 @@ private
     if session[:questions].nil?
       session[:questions] = Dir.entries(pictures_dir)
       session[:questions].delete_if {|filename| !filename.match /.jpg$/}
-      session[:questions].map!{|filename| filename.gsub(/.jpg$/, '')}
       session[:questions].shuffle!
     end
   end
