@@ -10,10 +10,13 @@ body {
 }
 a {
 	color:#369;
+        width: 100%;
+        overflow: auto;
+        display: block;
+        margin: 10px 0 5px;
 }
 a:hover {
 	color:#fff;
-	background:#369;
 	text-decoration:none;
 }
 h1, h2, h3 {
@@ -23,9 +26,6 @@ h1, h2, h3 {
 p {
 	margin:.4em 0 .8em 0;
 	padding:0;
-}
-img {
-	margin:10px 0 5px;
 }
 #ads img {
 	display:block;
@@ -165,6 +165,7 @@ img.banner {
     width: 206px;
     margin: auto;
     display: block;
+    float: none;
   }
 }
 p.image_title {
