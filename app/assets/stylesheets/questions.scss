@@ -14,12 +14,13 @@ body {
   font-size:90%;
 
   div#container {
+    background: #DDD;
     width: 100%;
     overflow: auto;
-    height: 100%;
+    height: 90%;
     min-height: 100%;
   }
-  h1, h2 {
+  h1, h2, h3 {
     color: #666;
     font-size: 50px;
     text-align: center;
@@ -31,6 +32,23 @@ body {
   h2 {
     font-size: 30px;
     margin: 20px 0 0 0;
+  }
+
+  h3 {
+    font-size: 20px;
+    letter-spacing: -1px;
+    margin: 10px 0 0 0;
+  }
+
+  div.pic_container {
+    position: relative;
+    span {
+      position: absolute;
+      color: #666;
+      font-size: 30px;
+      top: 80%;
+      right: 8%;
+    }
   }
 
   section {
@@ -69,13 +87,18 @@ body {
       }
     }
     &#profile {
+      padding: 10px 0 0 0;
+      h3 {
+        font-size: 28px;
+        margin: 0 0 5px 0;
+      }
       a {
         margin: 0;
         border: none;
       }
       img {
-        width: 930px;
-        height: 525px;
+        width: 870px;
+        height: auto;
         margin: 0 auto;
         float: none;
       }
@@ -264,13 +287,13 @@ p {
   margin:0;
 }
 img.banner {
-  width: 75%;
+  width: 70%;
 }
 .main-picture {
   margin: 15px 0 0 0;
   img {
 /*    width: 206px; */
-    width: 50%;
+    width: 45%;
     margin: 0 auto 5px;
     display: block;
     float: none;

@@ -9,6 +9,7 @@ class HomeController < ApplicationController
   end
 
   def profile
+    @question_number = params[:number]
     index = params[:number].to_i
     @profile = PROFILES[index - 1]
     if index == PROFILES.length
