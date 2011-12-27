@@ -225,18 +225,24 @@ p {
 }
 .threecol .col1 {
   background: #DDD;
-  width:33%;			/* width of center column content (column width minus padding on either side) */
-  margin-right: 0.5%;
+  width:33.5%;			/* width of center column content (column width minus padding on either side) */
+/*  margin-right: 0.5%;*/
   height: 100%;
   min-height: 100%;
 /*  left:102%;			/* 100% plus left padding of center column */
 }
 .threecol .col2 {
-  width:33%;			/* Width of left column content (column width minus padding on either side) */
-  margin-right: 0.5%;
+  width:33.5%;			/* Width of left column content (column width minus padding on either side) */
+/*  margin-right: 0.5%;*/
   height: 100%;
   min-height: 100%;
+  padding-top: 0;
 /*  left:39%;			/* width of (right column) plus (center column left and right padding) plus (left column left padding) */
+  a {
+    background: #DDD;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 }
 .threecol .col3 {
   background: #DDD;
@@ -276,7 +282,7 @@ p.image_title {
   font-size: 20px;
   text-align: center;
   letter-spacing: -1px;
-  font-size: 20px;
+  font-size: 17px;
   text-transform: uppercase;
   text-shadow: #CCC 1px 1px 1px;
 }
