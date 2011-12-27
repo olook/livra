@@ -38,6 +38,9 @@ body {
     font-size: 20px;
     letter-spacing: -1px;
     margin: 10px 0 0 0;
+    &.red {
+      color: #F00;
+    }
   }
 
   div.pic_container {
@@ -47,7 +50,7 @@ body {
       color: #666;
       font-size: 30px;
       top: 80%;
-      right: 8%;
+      right: 10%;
     }
   }
 
