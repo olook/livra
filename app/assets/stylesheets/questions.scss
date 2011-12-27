@@ -1,3 +1,6 @@
+html, body {
+  height: 100%;
+}
 body {
   font-family: Arial;
   font-size: 14px;
@@ -10,6 +13,12 @@ body {
   /* The min-width property does not work in old versions of Internet Explorer */
   font-size:90%;
 
+  div#container {
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+    min-height: 100%;
+  }
   h1, h2 {
     color: #666;
     font-size: 50px;
@@ -63,7 +72,6 @@ a {
   width: 100%;
   overflow: auto;
   display: block;
-  margin: 10px 0 5px;
   cursor: pointer;
 }
 a:hover {
@@ -155,8 +163,8 @@ p {
 /* column container */
 .colmask {
   position:relative;	/* This fixes the IE7 overflow hidden bug */
+  text-align: center;
   clear:both;
-  float:left;
   width:100%;			/* width of whole page */
   overflow:hidden;		/* This chops off any overhanging divs */
 }
@@ -164,7 +172,6 @@ p {
 .colright,
 .colmid,
 .colleft {
-  float:left;
   width:100%;			/* width of page */
   position:relative;
 }
@@ -173,32 +180,57 @@ p {
 .col3 {
   float:left;
   position:relative;
-  padding:0 0 1em 0;	/* no left and right padding on columns, we just make them narrower instead only padding top and bottom is included here, make it whatever value you need */
+  padding: 15px 0 1em 0;	/* no left and right padding on columns, we just make them narrower instead only padding top and bottom is included here, make it whatever value you need */
   overflow:hidden;
+  a {
+    margin: 0 0 15px 0;
+  }
 }
 /* 3 Column settings */
 .threecol {
-  background:#eee;		/* right column background colour */
+  width: 100%;
+  overflow: auto;
+  height: 100%;
+  min-height: 100%;
+  padding: 0;
 }
 .threecol .colmid {
-  right:33%;			/* width of the right column */
-  background:#fff;		/* center column background colour */
+/*  right:33%;			/* width of the right column */
+  height: 100%;
 }
 .threecol .colleft {
-  right:33%;			/* width of the middle column */
+//  right:33%;			/* width of the middle column */
   background:#f4f4f4;	/* left column background colour */
+  width: 100%;
+  overflow: auto;
+  height: 100%;
+  min-height: 100%;
 }
 .threecol .col1 {
-  width:29%;			/* width of center column content (column width minus padding on either side) */
-  left:102%;			/* 100% plus left padding of center column */
+  background: #DDD;
+  width:33%;			/* width of center column content (column width minus padding on either side) */
+  margin-right: 0.5%;
+  overflow: auto;
+  height: 100%;
+  min-height: 100%;
+/*  left:102%;			/* 100% plus left padding of center column */
 }
 .threecol .col2 {
-  width:29%;			/* Width of left column content (column width minus padding on either side) */
-  left:39%;			/* width of (right column) plus (center column left and right padding) plus (left column left padding) */
+  width:33%;			/* Width of left column content (column width minus padding on either side) */
+  margin-right: 0.5%;
+  overflow: auto;
+  height: 100%;
+  min-height: 100%;
+/*  left:39%;			/* width of (right column) plus (center column left and right padding) plus (left column left padding) */
 }
 .threecol .col3 {
-  width:29%;			/* Width of right column content (column width minus padding on either side) */
-  left:77%;			/* Please make note of the brackets here:
+  background: #DDD;
+  width:33%;			/* Width of right column content (column width minus padding on either side) */
+  float: left;
+  overflow: auto;
+  height: 100%;
+  min-height: 100%;
+/*  left:77%;			/* Please make note of the brackets here:
   (100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding) */
 }
 /* Footer styles */
@@ -213,17 +245,24 @@ p {
   margin:0;
 }
 img.banner {
-  width: 100%;
+  width: 75%;
 }
 .main-picture {
+  margin: 15px 0 0 0;
   img {
-    width: 206px;
-    margin: auto;
+/*    width: 206px; */
+    width: 50%;
+    margin: 0 auto 5px;
     display: block;
     float: none;
+    border: 5px #555 solid;
   }
 }
 p.image_title {
-  text-align: center;
   font-size: 20px;
+  text-align: center;
+  letter-spacing: -1px;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-shadow: #CCC 1px 1px 1px;
 }
