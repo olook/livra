@@ -39,19 +39,34 @@ body {
     margin: 0 auto;
     padding: 20px;
     overflow: auto;
-    &#home {
+    &#home, &#finish {
       background: #ECECEC;
       border: 1px #DDD solid;
       border-radius: 4px;
       -moz-border-radius: 4px;
       -webkit-border-radius: 4px;
+    }
+    &#home {
       a {
         background: url("bt-click-here.png") no-repeat;
         text-indent: -9999px;
         width: 242px;
         height: 43px;
         display: block;
-        float: right;
+        margin: 0 auto;
+      }
+    }
+    &#finish {
+      p {
+        text-align: center;
+      }
+      a {
+        background: url("bt-finish.png") no-repeat;
+        text-indent: -9999px;
+        width: 106px;
+        height: 46px;
+        display: block;
+        margin: 0 auto;
       }
     }
     &#profile {
