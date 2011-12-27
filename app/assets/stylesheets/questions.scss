@@ -1,4 +1,6 @@
 body {
+  font-family: Arial;
+  font-size: 14px;
   margin:0;
   padding:0;
   border:0;			/* This removes the border around the viewport in old versions of IE */
@@ -7,6 +9,54 @@ body {
   min-width:600px;		/* Minimum width of layout - remove line if not required */
   /* The min-width property does not work in old versions of Internet Explorer */
   font-size:90%;
+
+  h1, h2 {
+    color: #666;
+    font-size: 50px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: -3px;
+    margin: 20px auto 30px auto;
+    text-shadow: #999 2px 2px 3px;
+  }
+
+  h2 {
+    font-size: 30px;
+    margin: 20px 0 0 0;
+  }
+
+  section {
+    width: 948px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: auto;
+    &#home {
+      background: #ECECEC;
+      border: 1px #DDD solid;
+      border-radius: 4px;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      a {
+        background: url("bt-click-here.png") no-repeat;
+        text-indent: -9999px;
+        width: 242px;
+        height: 43px;
+        display: block;
+        float: right;
+      }
+    }
+    &#profile {
+      a {
+        margin: 0;
+      }
+      img {
+        width: 930px;
+        height: 525px;
+        margin: 0 auto;
+        float: none;
+      }
+    }
+  }
 }
 a {
   color:#369;
@@ -14,6 +64,7 @@ a {
   overflow: auto;
   display: block;
   margin: 10px 0 5px;
+  cursor: pointer;
 }
 a:hover {
   color:#fff;
@@ -24,8 +75,13 @@ h1, h2, h3 {
   padding:0;
 }
 p {
-  margin:.4em 0 .8em 0;
-  padding:0;
+  color: #454545;
+  font-size: 14px;
+  text-align: justify;
+  text-shadow: #FFF 0px 1px 1px;
+  line-height: 21px;
+  margin: 0 0 10px 0;
+  padding: 0;
 }
 #ads img {
   display:block;
