@@ -11,5 +11,3 @@
 *.swp
 *.DS_Store
 .rvmrc
-/public/assets
-.sass-cache
