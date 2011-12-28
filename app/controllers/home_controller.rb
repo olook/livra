@@ -15,6 +15,10 @@ class HomeController < ApplicationController
 
   def index
     session[:questions] = nil
+    redirect_to quota_full_path if Answer.select('DISTINCT user').confirmed.count >= 250 
+  end
+
+  def quota_full 
   end
 
   def profile
