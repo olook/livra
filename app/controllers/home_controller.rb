@@ -51,6 +51,10 @@ class HomeController < ApplicationController
       @question_title = clean_image_name @question_picture
       @question_title = '' if @question_title[0] == '_'
       @next_question = number + 1
+
+      @total_questions = session[:questions].length
+      @current_question = number
+
       render 'question', :layout => 'questions'
     else
       redirect_to finish_path
