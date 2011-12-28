@@ -4,6 +4,15 @@ class HomeController < ApplicationController
 
   PROFILES = %w{casual contemporary elegant feminine sexy traditional trendy}
 
+  PROFILE_CODES = { 'trendy'        => { 1 => 'Trendy'      },
+                    'casual'        => { 2 => 'Basica'      },
+                    'feminine'      => { 3 => 'Feminina'    },
+                    'elegant'       => { 4 => 'Elegante'    },
+                    'traditional'   => { 5 => 'Tradicional' },
+                    'sexy'          => { 6 => 'Sexy'        },
+                    'contemporary'  => { 7 => 'Fashionista' }
+                  }
+
   def index
     session[:questions] = nil
   end
@@ -24,12 +33,17 @@ class HomeController < ApplicationController
     response = params[:response].to_i
 
     if (1..7).include? response
-      image = clean_image_name session[:questions][number-2]
-      Answer.find_or_create_by_user_and_image(session[:user], image, :profile => PROFILES[response-1])
+      question_number, question_image = session[:questions][number - 2].flatten
+
+      question_image = clean_image_name question_image
+      profile_code, profile_name = PROFILE_CODES[PROFILES[response-1]].flatten
+
+      Answer.find_or_create_by_user_and_image(session[:user], question_image, :question_number => question_number, :profile_name => profile_name, :profile_code => profile_code, :confirmed => false)
     end
 
     if number <= session[:questions].length
-      @question_picture = session[:questions][number - 1]
+      question_number, question_image = session[:questions][number - 1].flatten
+      @question_picture = question_image
       @question_title = clean_image_name @question_picture
       @next_question = number + 1
       render 'question', :layout => 'questions'
@@ -39,15 +53,16 @@ class HomeController < ApplicationController
   end
 
   def finish
+    Answer.where(:user => session[:user]).unconfirmed.update_all({:confirmed => true})
   end
 
   def admin_results
-    @answers = Answer.all
+    @answers = Answer.confirmed.by_user.by_question_number
   end
 private
   def clean_image_name(original_name)
     result = original_name.gsub(/.jpg$/, '')
-    result.gsub(/-[a-zA-Z0-9]*$/, '')
+    result.gsub(/-[a-zA-Z0-9]{32}$/, '')
   end
 
   def save_tracking_params
@@ -66,9 +81,18 @@ private
 
   def prepare_questions
     if session[:questions].nil?
-      session[:questions] = Dir.entries(pictures_dir)
-      session[:questions].delete_if {|filename| !filename.match /.jpg$/}
-      session[:questions].shuffle!
+      files = Dir.entries(pictures_dir)
+      if Rails.env.production?
+        files.delete_if {|filename| !filename.match /-[a-zA-Z0-9]{32}.jpg$/}
+      else
+        files.delete_if {|filename| !filename.match /.jpg$/}
+      end
+      files.sort!
+      questions = []
+      files.each_with_index do |question, index|
+        questions << { index => question }
+      end
+      session[:questions] = questions.shuffle
     end
   end
 end

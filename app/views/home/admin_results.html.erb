@@ -2,13 +2,17 @@
   <tr>
     <th>user</th>
     <th>image</th>
-    <th>profile</th>
+    <th>question_number</th>
+    <th>profile_name</th>
+    <th>profile_code</th>
   </tr>
   <% @answers.each do |answer| %>
   <tr>
     <td><%= answer.user %></td>
     <td><%= answer.image %></td>
-    <td><%= answer.profile %></td>
+    <td><%= answer.question_number%></td>
+    <td><%= answer.profile_name %></td>
+    <td><%= answer.profile_code %></td>
   </tr>
   <% end %>
 </table>

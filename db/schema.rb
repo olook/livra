@@ -11,18 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111223134615) do
+ActiveRecord::Schema.define(:version => 20111228014252) do
 
   create_table "answers", :force => true do |t|
     t.string   "user"
     t.string   "image"
-    t.string   "profile"
+    t.string   "profile_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "question_number"
+    t.integer  "profile_code"
+    t.boolean  "confirmed"
   end
 
   add_index "answers", ["image"], :name => "index_answers_on_image"
-  add_index "answers", ["profile"], :name => "index_answers_on_profile"
+  add_index "answers", ["profile_name"], :name => "index_answers_on_profile"
   add_index "answers", ["user"], :name => "index_answers_on_user"
 
   create_table "sessions", :force => true do |t|
