@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   before_filter :save_tracking_params, :only => :index
   before_filter :prepare_questions, :only => :question
 
-  PROFILES = %w{casual contemporary elegant feminine sexy traditional trendy}
+  PROFILES = %w{trendy casual feminine elegant traditional sexy contemporary}
 
   PROFILE_CODES = { 'trendy'        => { 1 => 'Trendy'      },
                     'casual'        => { 2 => 'Basica'      },
@@ -49,6 +49,7 @@ class HomeController < ApplicationController
       question_number, question_image = session[:questions][number - 1].flatten
       @question_picture = question_image
       @question_title = clean_image_name @question_picture
+      @question_title = '' if @question_title[0] == '_'
       @next_question = number + 1
       render 'question', :layout => 'questions'
     else
