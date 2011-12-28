@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111228014252) do
+ActiveRecord::Schema.define(:version => 20111228020705) do
 
   create_table "answers", :force => true do |t|
     t.string   "user"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20111228014252) do
 
   add_index "answers", ["image"], :name => "index_answers_on_image"
   add_index "answers", ["profile_name"], :name => "index_answers_on_profile"
+  add_index "answers", ["question_number"], :name => "index_answers_on_question_number"
   add_index "answers", ["user"], :name => "index_answers_on_user"
 
   create_table "sessions", :force => true do |t|
