@@ -2,15 +2,15 @@ class HomeController < ApplicationController
   before_filter :save_tracking_params, :only => :index
   before_filter :prepare_questions, :only => :question
 
-  PROFILES = %w{trendy casual feminine elegant traditional sexy contemporary}
+  PROFILES = %w{trendy basica feminina elegante tradicional sexy fashionista}
 
-  PROFILE_CODES = { 'trendy'        => { 1 => 'Trendy'      },
-                    'casual'        => { 2 => 'Basica'      },
-                    'feminine'      => { 3 => 'Feminina'    },
-                    'elegant'       => { 4 => 'Elegante'    },
-                    'traditional'   => { 5 => 'Tradicional' },
-                    'sexy'          => { 6 => 'Sexy'        },
-                    'contemporary'  => { 7 => 'Fashionista' }
+  PROFILE_CODES = { 'trendy'      => { 1 => 'Trendy'      },
+                    'basica'      => { 2 => 'Basica'      },
+                    'feminina'    => { 3 => 'Feminina'    },
+                    'elegante'    => { 4 => 'Elegante'    },
+                    'tradicional' => { 5 => 'Tradicional' },
+                    'sexy'        => { 6 => 'Sexy'        },
+                    'fashionista' => { 7 => 'Fashionista' }
                   }
 
   def index
