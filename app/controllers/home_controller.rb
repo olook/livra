@@ -15,7 +15,7 @@ class HomeController < ApplicationController
 
   def index
     session[:questions] = nil
-    redirect_to quota_full_path if Answer.confirmed_users >= 250
+    redirect_to quota_full_path if Answer.confirmed_users.count >= 250
   end
 
   def quota_full 
@@ -64,6 +64,10 @@ class HomeController < ApplicationController
 
   def admin_results
     @answers = Answer.confirmed.by_user.by_question_number
+  end
+
+  def admin_confirmed_users
+    @confirmed_users = Answer.confirmed_users
   end
 private
   def clean_image_name(original_name)

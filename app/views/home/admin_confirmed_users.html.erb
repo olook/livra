@@ -1,0 +1,11 @@
+<h1>Users who finished the survey: <%= @confirmed_users.length %></h1>
+<table>
+  <tr>
+    <th>user</th>
+  </tr>
+  <% @confirmed_users.each do |confirmed_user| %>
+  <tr>
+    <td><%= confirmed_user.user %></td>
+  </tr>
+  <% end %>
+</table>
